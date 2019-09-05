@@ -1,1 +1,1 @@
-#  Complete-blockchain-nanodegree-program by udacity
+#  Complete-blockchain-nanodegree-program 
