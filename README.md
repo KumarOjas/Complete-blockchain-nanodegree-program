@@ -111,13 +111,65 @@ Proof of Stake
 It seeks to achieve consensus by giving votes to those with stake in the system.
 
 
+Who is using it?
+Etherum
+-Switching from POW to POS in the casper project
+DASH
+-A pioneer of POS
+-Built from the  core bitcoin platform with added features 
+for privacy and tx speed
+
+LISK
+-Focused on creating Decentralised apps 
+-Uses Delegate Proof of Stake 
 
 
+Delegate Byzantine Fault Tolerance 
+Consensus algorithm based on assigning roles to nodes to help coordinate consensus
 
+It has two nodes ordinary node and consensus nodes
 
+It has delegates and a speaker
 
-
-
+Private ----->Public Key----->Public key------>Bitcoin wallet  
+Key                             Hash             Address
+       (Eliptical    Ripemd 
+        Curve         (SHAH 256())        Base 58   
+      Multiplication )                    (Check)
+        One-way
+        
+ Wallet Address 
+ A unique identifier for your wallet
+ Private Key(Secret Key)
+ A secret number that allows you to spend bitcoin from your wallet
+ Public key
+ Publicly  sharable key that cannot be used to spend bitcoin.
+ Wallet 
+ Non-Deterministic 
+ Sequential determinstic 
+ Hierarchical deterministic
+ 
+ 
+Wallet type     Non                     Sequential          Hierarchial 
+               deterministic           deterministic      deterministic wallet
+                wallet                   wallet
+ 
+ 
+ 
+ Description   Randomly generated       Derived sequentially
+               private key              from a single seed
+                                        and can be traced 
+ How to get      Private key             back to the seed
+ a new private   =randomly generated    private key=
+ key?             between 1 and 2^256    sha256(seed+n),
+                                        where seed=128
+                                        purely random bits
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
