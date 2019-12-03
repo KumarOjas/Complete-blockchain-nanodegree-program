@@ -190,8 +190,12 @@ How to get a new private key                                            and can 
 
                    Public keys,K----->Sha 256343423545nkbbad----->RIPEMD160------>nfnsfnnnndendbbd43242BASE58CHECK----->ffsff223bda                                256 bit number                           160 bit number                Walllet address
 
+C/S Network   Peer to peer network
 
 
+
+c/s<--REQUEST--->c/s
+Computers act as c/s in peer to peer networks
 
 
 
