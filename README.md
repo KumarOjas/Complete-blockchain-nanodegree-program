@@ -156,20 +156,35 @@ Wallet type     Non                     Sequential          Hierarchial
  
  
  
- Description   Randomly generated       Derived sequentially
-               private key              from a single seed
-                                        and can be traced 
- How to get      Private key             back to the seed
- a new private   =randomly generated    private key=
- key?             between 1 and 2^256    sha256(seed+n),
+ Description   Randomly generated       Derived sequentially Derived in a tree structure
+               private key              from a single seed    Parent keys derive children
+                                        and can be traced     keys, childrren keys derive 
+ How to get       Private key             back to the seed    grandchildren key
+ a new private   =randomly generated    private key=         Private key=sha256(address
+ key?             between 1 and 2^256    sha256(seed+n),     (publicKey(seed)+n)
                                         where seed=128
                                         purely random bits
  
  
  
+ Deterministic wallet
+ 
+ Sequential deterministic wallet
+ Hierarichal Deteerministic wallet:
  
  
- 
+Seed--->Master key ---->Child key----->Grandchild key
+
+
+
+
+
+
+
+
+
+
+
 
 
 
