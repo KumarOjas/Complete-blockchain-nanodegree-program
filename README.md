@@ -175,14 +175,20 @@ Wallet type     Non                     Sequential          Hierarchial
  
 Seed--->Master key ---->Child key----->Grandchild key
 
+Wallet Type                              Non deterministic wallet    Sequential Deterministic wallet   Hierarchical Deterministic wallet
+
+Description                           Collections of randomly generated These wallets have           These wallet has keys 
+                                      private keys                      private keys that are         derived in a tree 
+                                                                        derived sequentially
+How to get a new private key                                            and can be traced back
+                                                                        to the seed
+
+                                      Private key= randomly            private key=sha 256           Private key= 
+                                      generatedd between 1             (seed + n),where seed         sha256(address)
+                                      and 2^256                        =128 purely random bits       (publicKey(seed)+n))
 
 
-
-
-
-
-
-
+                   Public keys,K----->Sha 256343423545nkbbad----->RIPEMD160------>nfnsfnnnndendbbd43242BASE58CHECK----->ffsff223bda                                256 bit number                           160 bit number                Walllet address
 
 
 
