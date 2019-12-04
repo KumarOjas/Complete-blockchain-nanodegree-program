@@ -346,6 +346,8 @@ Transparency           Low                           High
 
 Go to blockexplorer.com to explore bitcoin data
 
+infura.io is another site in order to use api
+
 
 
 
