@@ -210,6 +210,189 @@ It is a system used to send a command  to a remote system where it is procesed a
 are returned.
 
 Etherscan.io Is another site  where we can work with etherium.
+ Wallet Address 
+ A unique identifier for your wallet
+ Private Key(Secret Key)
+ A secret number that allows you to spend bitcoin from your wallet
+ Public key
+ Publicly  sharable key that cannot be used to spend bitcoin.
+ Wallet 
+ Non-Deterministic 
+ Sequential determinstic 
+ Hierarchical deterministic
+ 
+ 
+Wallet type     Non                     Sequential          Hierarchial 
+               deterministic           deterministic      deterministic wallet
+                wallet                   wallet
+ 
+ 
+ 
+ Description   Randomly generated       Derived sequentially Derived in a tree structure
+               private key              from a single seed    Parent keys derive children
+                                        and can be traced     keys, childrren keys derive 
+ How to get       Private key             back to the seed    grandchildren key
+ a new private   =randomly generated    private key=         Private key=sha256(address
+ key?             between 1 and 2^256    sha256(seed+n),     (publicKey(seed)+n)
+                                        where seed=128
+                                        purely random bits
+ 
+ 
+ 
+ Deterministic wallet
+ 
+ Sequential deterministic wallet
+ Hierarichal Deteerministic wallet:
+ 
+ 
+Seed--->Master key ---->Child key----->Grandchild key
+
+Wallet Type                              Non deterministic wallet    Sequential Deterministic wallet   Hierarchical Deterministic wallet
+
+Description                           Collections of randomly generated These wallets have           These wallet has keys 
+                                      private keys                      private keys that are         derived in a tree 
+                                                                        derived sequentially
+How to get a new private key                                            and can be traced back
+                                                                        to the seed
+
+                                      Private key= randomly            private key=sha 256           Private key= 
+                                      generatedd between 1             (seed + n),where seed         sha256(address)
+                                      and 2^256                        =128 purely random bits       (publicKey(seed)+n))
+
+
+                   Public keys,K----->Sha 256343423545nkbbad----->RIPEMD160------>nfnsfnnnndendbbd43242BASE58CHECK----->ffsff223bda                                256 bit number                           160 bit number                Walllet address
+
+
+bitaddress.org is the site to produce private keys.
+
+What is the purpose of a private key?
+
+It generates public key and wallet address that allow us to interact with the blockchain
+
+What makes a private key secure?
+It is a 256 bit random number between 1 and 2^256
+
+How to generate a private key?
+
+*Paper,pencil,oil,coin,dice
+*OS with sourcce of entropy or library with cryptographic secure number generator
+*Entropy
+*Websites
+
+
+
+Bitaddress.org is the site to generate private keys.
+A private key is just a 256 bit random number between 1 and 2^256
+
+Entropy:It is defined as the randomness
+
+Signature: It establishes proof of ownership for
+each transaction on the blockchain
+
+Blockchain Network:
+Decentralised
+Pro:
+Control given to nodes
+Con:
+Must achieve consensus.
+
+Blockchain Functions:
+Pros:
+Accurate historical record
+Faster read and write
+
+Con:
+Must achieve consensus
+
+Blockchain Mutability
+Immutable
+Pro:
+Permanent 
+Con:
+Storage space
+Blockchain Authorization:
+Pro 
+Extremely secure
+Con
+Cannot dispute transaction
+Blockchain Authorization
+Pro:
+Extremely Secure
+Con:
+Cannot dispute transaction
+
+Blockchain Transparensy:
+Pro:
+Everyone has access
+Cons:
+No permission control
+
+
+Centralized network:
+*Remains with authority
+*Requires authentication
+Traditional database security:
+Create Read Update delete(CRUD)
+
+
+                      Traditional Database           Blockchain 
+Network                Centralized                   Distributed
+Functions              CRUD                          Read,append and validate
+Mutability             Mutable                       Immutable
+Authorization          Centralized                   Distributed
+Transparency           Low                           High
+
+
+
+Go to blockexplorer.com to explore bitcoin data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
