@@ -1,0 +1,21 @@
+//These are the set of commands that has been used to connect web3 to ganache
+
+C:\Users\Lenovo>mkdir projectFolder
+
+C:\Users\Lenovo>cd projectFolder
+
+C:\Users\Lenovo\projectFolder>npm init -y
+Wrote to C:\Users\Lenovo\projectFolder\package.json:
+
+{
+  "name": "projectFolder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
