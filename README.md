@@ -204,3 +204,18 @@ Computers act as c/s in peer to peer networks
 Sailsjs.com 
 Hapijs.com
 Expressjs.com
+//Remote procedure calls
+
+It is a system used to send a command  to a remote system where it is procesed and the resultse
+are returned.
+
+
+
+
+
+
+
+
+
+
+
