@@ -22,7 +22,7 @@ var rawTransaction ={
     gasLimit: 3000000,
     value:1 ,
     data:""
-    }
+    } 
 //Step 5:View the raw transaction
 rawTransaction
 
@@ -35,6 +35,22 @@ web3.eth.getBalance(receivingAddress).then(console.log)
 /*#########################################
 #####Sign the transaction to the network ####
 #########################################*/
+
+//Step 7:Sign the transaction  with the hex value of the private key of the sender
+var privateKeySender ='Private key of sender goes here'
+var privateKeySenderHex = new Buffer(privateKeySender,'hex')
+var transaction = new EthereumTransaction(rawTransaction)
+transaction.sign(privateKeySenderHex)
+/*#################################################
+##Send the transaction to the network ##
+###################################################*/
+//Step 8:Send the serialized signed transaction to the ethereum network
+
+var serializedTransaction= transaction.serialize();
+web3.eth.sendSignedTransaction(serializedTransaction);
+
+
+
 
 
 
