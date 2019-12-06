@@ -1,0 +1,26 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script>
+//Connect a the web3 provider
+if(typeof web3 'undefined'){
+  web3 = new Web3(web3.currentProvider);
+  }
+  else{
+  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'}
+  //Set a deffault account
+  web3.eth.defaultAccount = web3.eth.account[0];
+  //Get the contract address
+  var RemixContract = web3.eth.contract([-
+  //Get the contract abi
+  var myMessage = RemixContract.at(0*88543bsfbsgbrgbsgbsgbsrgbsrbgbrgbsrng:
+  console.log(myMessage);
+   $ ('setMessageButton').click(function(){
+      message =$('#userInput').val()
+      myMessage.setMessage($('#userInput').val());
+      console.log($("#userInput").val())
+      });
+      </script>
+      </body>
+      </html>
+      
+      
+      
