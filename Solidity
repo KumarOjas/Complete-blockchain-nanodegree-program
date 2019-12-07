@@ -1,0 +1,816 @@
+What is smart contract?
+//It is a piece of code that live on the block chain
+//A self operating computer program that automatically 
+//executes when certain conditions are met
+//It can be instructed to do certain things:
+//* Send money
+//* Receive money
+//* Transfer assets
+//*Smart contracts are the absolute core of ethereum
+//*Smart contracts distinguish Ethereum from Bitcoin
+
+//Smart Contract Properties
+//*Have an account address like wallet accounts or an email address account
+//*Can hold ether like wallet accounts or bank accounts
+//*Have their own storage
+
+__________________________________________
+|Smart Contract Account                  |
+|                                        |
+|Field         Description               |
+|Address      Unique account address     |
+|Balance      Amount of ether in account |                        |
+|Storage      Data storage for contract  |    |
+|________________________________________|      |
+||||__________________________________________|
+
+A smart contract use case
+  Contract * A buyer   Contract wants to buy a product from a seller
+* The buyer  Instance  will firs Instancet send the required amount of ethers to a Smart 
+*Contract
+*The smart contract will hold these funds (like an escrow)
+*The seller will ship the product to the buyer.
+Buyer will tell the Smart contract that the product has been received.
+*Finally, the Smart Contract will release the funds to the seller.
+
+Smart contract Languages 
+*Solidity
+*Serpent 
+*Lisp-like language
+
+Smart Contract Lifestyle
+
+_________________
+|Develop Contract|
+_________________
+         |
+ __________                ____________________           __________________
+| Deployed |_____________>|     Invoked       |__________>|Self Destruct   |
+|_________ |              |___________________|           |________________|
+                                                                 |
+                                                                 |
+                                                                *
+                                                           No more transactions
+                                                               possible
+                                                               
+                                                               
+ Writing a smart contract
+ 
+ *Solidity programming language
+ *Visual Studio Code with Solidity Plugin Addaed,or your 
+ favourite editor or online remix editor
+ *Written in.sol files
+ *Strongly typed
+ *Similar to javascript
+ 
+     Compiling a Smart Contract                                 __>Byte code ready for 
+   ____________________              _______________________   |    development
+  |Contract Definition|             |Solidity Compiler      |__|
+  |  (Solidity)       |  __________>|                       |___                
+   ____________________             |_______________________|   |____>Application Binary 
+                                                                      Interface(ABI )
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+Deploying a Smart Contract
+
+____________________________________________
+|           Rinekby                        |
+|       Contract   Contract  Contract      |
+|       Instance   Instance  Instance      |
+|__________________________________________|         
+             | Deployment  |        
+             |             |
+____________________________________________         
+|               Contract                   |
+|               Source                     |
+|             Our computer                 |
+ __________________________________________|
+ 
+ Invoking a Smart Contract
+ 
+ *Online wallet
+ *Desktop wallet
+ *Hardware Wallet (Ledger,Trezor)
+ *Dapp(Decentralized Apps)
+ *A way to interact with the blockchain and the smart contracts using the 
+ Web3 interface
+ *Web3 is a programmatic way to interact with the blockchain.
+         
+         
+         
+         Smart Contract Layout
+ ________________________________   ___________________
+|                               |   |                 |   -Rejected with future compiler 
+|   Pragma Solidity             |   |  ^0.4.7         |    versions
+|_______________________________|   |_________________|    -0.4* will compile with 0.4*
+ _________________________________   __________________     and above,but not with 0.5
+|                                |   |                |    
+|          Contract              |   |  Name          |    -Given name of contract
+|________________________________|   |________________|    -CapitalizeWords e.g. MyContrast
+
+ 
+ 
+        {
+        
+        _________________________      ________________________________________
+        |                        |     |  - Stored in the chain as part 
+        |State/Storage Variables |     |    of contract
+        |________________________|     |_________________________________________   
+                                        |  -Events and logs emitted by the contract
+        _________________________       |____________________________________________
+        |                        |      |   -Leads to retrieval of state                                              |
+        |         Events         |      |     |
+        |________________________|      |____________________________________________|
+        __________________________
+        |       Functions        |
+        |________________________|
+        
+        }
+        }
+ 
+ 
+ pragma solidity ^0.4.25;
+ contract InboxContract {
+   string public name;
+   constructor (string_name)public {
+      name=_name;
+      }
+      function getName() public view returns(string_name){
+        return name;
+        }
+        function setName(string_name) public {
+             name=_name;
+             }}
+  
+ 
+ 
+ 
+ 
+ 
+ Default:State variables-----              Storage                                           Celldata                          
+ Default:Local variables-----            *Persistence(it's a db)                         *EVM code   
+                                         *Key-value store(256-bit key and value)          execution
+                                         *Read/write are costly                         *Non-modifiable
+                                         *Contrast can manage only it's own             *Max size 1024,
+ Function(args)--------------------------> Memory                                       Word 256 bit
+                                    *Temporary
+                                    *Arrays and structs
+                                    *Addressable at byte level
+ 
+ 
+ 
+ 
+ contract DataLocation
+ {
+ //Always in storage
+ uint count;
+ uint[] points;
+  
+ function localVariables() {
+ //This will give  a warning and
+ //Ask you to put the ord storage
+ //If you don't say storage,it will create it in storage
+ 
+ uint[] localArray;
+ uint[] memory memoryArray;
+ 
+ //Creates a reference to a storage array
+ unit [] pointer = points;
+ }}
+ 
+ Elementary Data Types
+ 
+ Boolean                  Integer
+ *bool               *int and uint
+ *true/false         *Size specified in 8 bit inccrements
+ *! && || == !=      *e.g. int 8 int 16 uint 32
+                     *Default: int = int256 
+ 
+ 
+
+[Address] *Represent the 20 byte Ethereum address
+          *Value type
+
+[balance]           address.balance          Returns balance in wei
+
+[transfer() send()  ]address.transfer(10)    Sends 10 Wei to the address    
+
+
+Address Type Example
+pragma solidity ^0.4.25;
+contract Test{
+  address owner;
+  uint initialBalance;
+
+  function setBalance() public {
+      initialBalance= owner.balance;
+
+} 
+}
+
+
+Data Initialization
+*If you don't specify a value,Solidity initializes:
+*int and uint to 0
+*Bool to false
+*int num (num will be initialized to 0)
+*uint 32 num (num will be initializzed to 0)
+*bool value  (value will be initialized to false)
+
+*Uninitialized address types are sorted as hex 0s
+
+address owner;    if(owner ==address(0*0));
+
+
+pragma solidity ^0.4.25;
+contract BasicDataTypesContract {
+    uint8  a=225; //1 bytes unsigned integer
+    address public owner; //Address types variable,called owner
+    bool public flag = true;
+    uint ownerInitialBalance; //uint type variable
+    //Function takes in an address , and returns the balance of this address
+    function test (address addr) public returns(uint)  {
+        owner =adder;
+        ownerInitialBalance =owner.balance;
+        //If(1) {}  will not compile
+        if(1 > 0 )  {//This will work because expression evaluates to bool
+        
+        }
+        return ownerInitialBalance;
+        }}
+    
+    
+    Type Conversion
+    *Implicit conversion
+    *Explicit conversion
+    
+    Implicit type conversion example
+    uint8 a =255   (Works fine)
+     uint8 a =256   (Compiler Error)
+     int8 a =255;   (Works fine)
+       int c;
+       c=a;
+    
+    
+      Implicit type conversion Examples
+      
+      uint a;             (Compiler error)
+      uint8 b;     
+      b=a
+    
+    if(1){}               (Compiler errror)
+    
+    if(1>0)                (Works fine)
+    
+     Explicit type conversions Examples 
+      uint    X32=20;                                    Works fine
+      uint24  x24 =x32;                                  Compiler error
+      uint24  x24 = uint24(x32);                         Works fine
+
+
+    
+    
+    
+    
+    
+    pragma solidity ^0.4.25;
+    contract TypeConversionContract {
+    
+       uint8 a=255;// a is 1 bytes unsigned integer
+       uint ownerInitialBalance; //uint256
+       function conversion () public {
+           int b ; //b is 32 bytes signed integer....256 bits
+           b=a; //Compilation successful, since a 8 bytes type can easily fit in a 32bytes type
+           a=b; //Fails compilation as the maximum value of int256 cannot be accomodated in uit8
+           a= uint8(b);   //Explicit type conversion .....converting a 32 bytes to 1bytes
+           }}
+           
+           
+           Complex data types
+           *Arrays        *String
+           *Structs       *Bytes
+           *Mapping       *Enums
+           
+           
+           
+           
+           
+           Arrays
+           
+           Static arrays                          Dynamic Arrays
+           -Fixed Sized arrays                   -Size can be changed at runtimer
+          bool[10] array;                        bool[] array;
+          bool element = array[4]                bool element = array[4]
+          uint len =array.length;                uint len =array.length;
+          array.length =6;                       array.length =6;//Storage
+           
+          
+           Static Arrays                                Dynamic arrays
+           bool                                        _/ int8[] array;//Storage
+             bool[10] array;                            array = new int8[] (10);
+           uint                                         array.push(5);
+             uint[10] array;                           X  int8[] memory array; //Memory
+                                                          array = new int8[] (10); 
+                                                          array.push(5)//Compile errors
+                                                          
+            Initialization and assignment
+            
+            Storage arrays only!
+            
+            uint8[3] arr =[1,2,3]                      _/ Implicit conversion  
+                                                          
+           int8[3] arr=[1,2,3]                         XCompilations fails                          
+                                                         Elements interpreted as uint8 
+                                                          
+                                                          
+            int8[] arr=[int8(1),2,3]                 -/ Gets  compiled                                         
+                                                          
+              
+              myArray = [1,2,3,4]
+              Will get an error if myArray is a Dynamic array in memory
+              
+              
+                                        Storage     Memory
+              
+               Static arrays             -/          -/ 
+                                                          
+               Dynamic arrays            -/          x     
+               
+               
+               
+               More on Arrays
+               
+               uint8[] memory memoryArray= [1,2,3]       x   Compiler error
+                 uint8[] memory memoryArray               -/ Ok                                           
+                 memoryArray.push(1)                     xCompile error     
+                 
+                 
+                 More on Arrays
+                 
+                 int[3] staticMyArray =[1,2]            -/  Works fine
+                 
+                    int[3] staticMyArray =[1,2,3,4]      X Compile error  
+                    
+                    
+                    
+                    
+                    Summarizing Arrays
+                    *Solidity supports static & dynamic arrays
+                    *There is a difference in in how memory and storage arrays are treated
+                    
+                    Array.push()        x  Not allowed for memory arrays
+                    Array.length=6      x  Not allowed for memory arrays
+                    Array=[1,2,3]       x Not allowed for memory arrays
+                                                          
+                                                          
+                                                          
+                                                          
+            Browser/arraysContract.sol
+            
+            pragma solidity ^0.4.25;
+            contract ArraysContract {
+            //Elementary type array in storage
+            //Static Array with size 3 of type int
+            int[3]  staticIntArray =[1,2]; //Last element set to 0
+            //Dynamic array of type int8
+            int 8[] dynamicIntarray;
+            //Dynamic array of type bool
+            bool[]   dynamicBoolArray;
+            
+            function testArray() public {
+            //Allocate memory for 8 elements to the dynamic bool storage array
+            
+            dynamicBoolArray = new bool[] (8);
+            //Allocate memory and and initialise items in the int array
+            //Explicit conversion is needed from uint8 to int8
+            
+            dynamicIntArray = [int8(1),2,3];
+            //This will work fine ,since we are inside a function
+            uint8[] memory memoryArray; //A dynamic memory array
+            
+            //Allocation with assignment not allowed for dynamic memory arrays
+            //memoryArray = [1,2,3];
+            
+            uint8[] memory dynamicMemoryArray; //A dynamic memory array
+            //Assignment of dynamic NOT allowed 
+            //dynamicMemoryArray = [uint8(1),2];
+            memoryArray = new uint8[](8);
+            
+            
+            //push () not allowed for memory array
+            //memoryArray.push(1);
+           //memoryArray.length=6;
+           
+           /**Examples of array initialization with assignment below*/
+           
+           //Static storage array assignment is OK
+           // Compile time size check is carried out
+           //So assignment to [1,2,3,4] will fail below
+           
+           
+           staticIntArray = [1,2,3];
+           
+           //Static memory array
+           unit[2] memory staticMemoryArray;
+           //This is allowed -make sure the type is matching
+           staticMemoryArray = [uint(1),2];
+           
+           
+           //This is allowed 
+           staticMemoryArray[0] = 0;
+           staticMemoryArray[1] = 1;
+           
+           dynamicMemoryArray[0]=1;
+           dynamicMemoryArray[1]=2;
+           
+           }}
+           
+           String and byte types in solidity
+           [Bytes]---------|---|_____Array of byte 
+           [String]--------|---|     type data
+           
+           
+           Bytes type-Array
+           
+           [Static                  Dynamic]           
+           byte[15] data;           byte[] data;   
+           bytes[1-32] data;        bytes data;                 
+           bytes1 data; = byte[1] data;
+           bytes 32 data;  //32 byte array
+           
+           
+           Byte Type                             Code Example
+           bytes24 data;//Fixed size =24       data[4] =28
+                                               data =[byte(1),2,3...]//Read only
+           bytes32 bigger;                     data.length=10 //Not allowed
+           
+           bytes16smaller;                     data=bigger; fails compilation
+                                               data=smaller; //Ok
+                                               
+                                               
+          String Type
+          
+          *String is not a basic type
+          *Represents an arbitrary length UTF-8 encoded string
+          *Dynamically size
+          *string=byteswith some differences
+          
+          
+          Conversion between String and bytes Type
+          
+          pragma solidity ^0.4.25;
+          contract Test {
+          //Dynamic bytes array
+          bytes bytes_array;
+          
+          function convert (string memory_name) {
+          //Converting bytes_array to a string
+          string data = string (bytes_array);
+          //Converting string_names to bytes
+          bytes memory data1 = bytes(_name);
+          }}
+          
+          Difference between string and Bytes Type
+          
+          string                                    Bytes
+          Fixed length Not supported          Fixed size supported using  
+                                              bytes(1-32)
+          Index access not allowed            Index access for Read returns byte
+          
+          string[7];//Error                   bytes[7]; //Ok for memory and storage
+                                                         
+          Cannot be expanded                  Storage bytes may be expanded with 
+          i.e. push() is not available         push() operation
+           
+           
+           
+           String and bytes Type Examples 
+           
+           pragma solidity ^0.4.25;
+           contract Test {
+           string stringStorage ="Udacity";
+           //Converts the string to bytes and sends 
+           //the length of the string 
+           function convert (string_name) public pure returns (uint_length ) {
+              bytes memory temp = bytes(_name);
+              _length = temp.length;
+              }
+              
+              //Retreives element at an index
+              function getElementat(uint index)  view public returns (byte _letter) {
+              //Convert string to bytes
+              bytes memory temp = bytes(stringStorage);
+              //Get the Ascii for the element at the index
+              }}
+           
+           
+           More on String Type
+           
+           *Not much out-of the-box support for strings in solidity 
+           *External StringUtil Libtrary can be imported
+           *Complex String Operations are costly & should be avoided 
+           
+           *Many similar operations can be carried out using Bytes type
+           *A better option would be carry these operations in your 
+           Front-end application ,rather than on the EVM
+           
+           Summarizing: String type and bytes type
+     ______________________________________________________________________________________      
+   |        Byte Type             |        String type                                     |
+   | bytes= array of byte type    |    Similar to bytes type                               |
+   | Fixed size: Bytes1,bytes2...bytes32 | No fixed size string type                       |
+   | bytes can be dynamically-sized |  Cannot use.push() or.length() assignment            |
+   |                                                                                       |
+   | May be converted explicitly    |  Indexed access to string element not allowed        |
+   |                                |   (i.e. str[1] not allowed )                         |
+   |                                |   May be converted explicitly                        |
+   |                                |                                                      | 
+    ________________________________|______________________________________________________ |       
+           
+           
+ pragma solidity ^0.4.25;
+ contract StringBytes {
+ //Static byte arrays both declaration will create array with 3 byte elements
+ byte[3]   fixedByteArray;
+ byte3     bytes3Array;
+ //Dynamic bytes arrays
+ byte[] dynamicByteArray;
+ bytes bytesArray;
+ 
+ //String variable
+ string string1 ="testing";
+ //Converts the bytes types to string type
+ function conversionTest() public pure returns(string) {
+     bytes memory string2 ="Udaacity";//Dynamic memory bytes type
+     string memory converted = string (string2);
+     return converted;
+      
+     }
+     
+  //Retreives the element at specific index
+  //Cannot do with strings ,hence converting to bytes
+  function getElementAt(uint index) public view returns (byte) {
+  
+  //Convert string to bytes
+  bytes memory bytesData = bytes(string1);
+  //Get the element at the specified index
+  byte element = bytesData[index];
+  return element;
+  }
+  
+  function testing() public {
+  //uint8 need to be explicitly converted to byte type
+  //Converting to byte type,since fixByteArray
+  // is a byte type array
+  //Assignment NOT allowed as bytes3Array is a static array
+  // is readonly
+  
+  
+  
+  
+  
+  
+  fixedByteArray = [byte(1),2,3];
+  //bytes3Array[0] =1;
+  //Memory dynamic bytes array
+  bytes memory memoryBytes;//Dynamic memory array
+  memoryBytes = new bytes(20);//allocating memory
+  memoryBytes[0]='a';
+  //Push will give compiler eerror as push() allowed for storage only
+  //memoryBytes.push('c');
+  }
+  
+  Mapping type
+  *Hashtable like structure
+  * Allowed only as storage or state variable
+  
+  //Storage variable
+  mapping (address=>uint) balances;
+  
+  *Key can be any type except mapping
+  *Value type can be mapping
+  
+  
+  
+  
+  Mapping vs Hashtable
+
+_____________________________________________________________________
+|  Mapping                             |       Hashtable            |
+|                                      |                            |
+| _____________________________________|_____________________________| 
+|                                      |                           
+|*Values exists for all keys (0X0,0..) |  *Missing key indicated by 
+|                                      |  undefined/null
+| *keccak256 (Key data) hash is stored |
+|                                      |  *Key data is stored
+|  *By default is not iterable         | 
+|                                      |  *Get all keys amd iterate
+|                                      |    through values
+|  *No concept of length               |
+|                                      |    *Length can be determined 
+| _____________________________________|________________________________
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
