@@ -1,26 +1,25 @@
-pragma solidity ^0.4.23;
-contract Migration {
- address public owner ;
- uint public last_completed_migration;
- 
- constructor() public{
- owner = msg.sender;
- }
- 
- modifier restricted () {
- if (msg.sender ==owner) _;
- }
- function setCompleted(uint completed) public restricted {
-   last_completed_migration = completed;
-   }
-   
-   function upgrade(address new_address) public restricted{
-   Migrations upgraded = Migrations(new_address);
-   upgraded.setCompleted(last_completed_migration);
-   }
-   }
+/*
+*NB: since truffle-hdwallet-provider 0.0.5 you must wrap HDWallet providers in a 
+*function when declaring them.Failure to do so will cause commands to hang.Ex:
+***
+mainnet:{
+provider: function() {
+   return new HDWalletProvider(mnemonic,'https://mainnet.infura.io/<infura-key>')
+},
+network_id:'1,
+gas:45000000,
+gasPrice:100000000000000,
+},
+*/
 
-
+module.exports ={
+ networks: {
+  development: {
+   host: "127.0.0.1",
+   port:7545,
+   network_id:*//MAtch any network id
+  }}
+ };
 
 
 
