@@ -600,18 +600,122 @@ contract BasicDataTypesContract {
 _____________________________________________________________________
 |  Mapping                             |       Hashtable            |
 |                                      |                            |
-| _____________________________________|_____________________________| 
-|                                      |                           
-|*Values exists for all keys (0X0,0..) |  *Missing key indicated by 
-|                                      |  undefined/null
-| *keccak256 (Key data) hash is stored |
-|                                      |  *Key data is stored
-|  *By default is not iterable         | 
-|                                      |  *Get all keys amd iterate
-|                                      |    through values
-|  *No concept of length               |
-|                                      |    *Length can be determined 
-| _____________________________________|________________________________
+| _____________________________________|____________________________| 
+|                                      |                            | 
+|*Values exists for all keys (0X0,0..) |  *Missing key indicated by |
+|                                      |  undefined/null            |
+| *keccak256 (Key data) hash is stored |                            |
+|                                      |  *Key data is stored       |
+|  *By default is not iterable         |                            |
+|                                      |  *Get all keys amd iterate |
+|                                      |    through values          |
+|  *No concept of length               |                            |
+|                                      |  *Length can be determined |
+| _____________________________________|____________________________|
+
+
+pragma solidity ^0.4.25;
+contract mappingExample {
+//Storage
+mapping (string=> string) capitals ;
+//Add a key value pair to mapping 
+function addCapital (string country, string caopital) public {
+ //Store the capital and country in the mapping 
+ capitals[country] =capital;
+ }
+ //Access the mapping using a key
+ function getCapital(string _country ) public view returns (string) {
+     return capitals[_country];
+     }
+     
+     //Delete a key value pair in mapping 
+     function removeCapital (string country ) public {
+        delete (capitals [country]);
+        }}
+     
+     pragma solidity ^0.4.25;
+contract MappingContract {
+//Creates in   storage
+mapping (string=> string) relations ;
+//Add a relation
+function addRelation (string name, string relation) public {
+ //Store a relation
+ relations[name] = relation;
+ }
+ //Returns a relation
+ function getRelation(string  name  ) public view returns (string) {
+     return relations[name];
+     }
+     
+     //Delete a key value pair in mapping 
+     function removeRelation (string name ) public {
+        delete (relations [name]);
+        }}
+     
+     
+     
+     Enums 
+     
+     * creates a custom types with finite set values
+     enum TransferType {Domestic,Foreign} //No semicolon
+     *Not part of ABI definition
+     *Explicit conversion to/from all integer types
+     
+     uint8 x=TransferType.Domestic; //Compile error
+     uint8 x=uint8(TransferType.Domestic);// Will work
+     
+     
+     
+     Pragma solidity ^0.4.4;
+     contract EnumContract {
+     //Create an enumeration 
+     enum names {Joe,Brandy,Rachna,Jessica}
+     //get the value at specified index
+     function getNames(uint arg ) public pure returns (string ) {
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
